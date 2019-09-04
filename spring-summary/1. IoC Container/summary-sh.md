@@ -1,6 +1,10 @@
 # 1.1 스프링 IoC 컨테이너와 빈의 도입 
 
-TODO
+* <I>제어의 역전 (IoC) 원리</I>
+* <I>ApplicationContext & BeanFactory</I>
+* <I>Bean</I>
+
+
 
 <br><br>
 
