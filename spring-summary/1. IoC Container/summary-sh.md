@@ -30,6 +30,17 @@ https://frontierdev.tistory.com/76
 <br><br>
 ### ApplicationContext & BeanFactory
 
+<b>스프링 컨테이너 (= IoC 컨테이너)</b><br>
+IoC 방식으로 오브젝트(빈)를 관리하는 컨테이너. 
+오브젝트에 대한 제어권을 넘겨받아, 오브젝트 생성과 관계, 사용, 생명 주기 등을 관장한다.
+오브젝트 간의 의존성을 낮추기 위해 사용된다. 객체를 외부에서 설정해서, 외부에서 설정한 객체를 주입하는 방식! <br>
+
+<b>BeanFactory</b><br>
+오브젝트(빈)의 생성과 관계 설정 제어를 담당하는 IoC 오브젝트. 
+조금 더 확장한 ApplicationContext를 주로 사용한다. <br>
+
+<b>ApplicationContext</b>
+
 
 <br><br>
 
