@@ -6,7 +6,7 @@
 
 <br>
 
-### 제어의 역전 (IoC = Inversion of Control)
+### 제어의 역전 (IoC = Inversion of Control = "대신 해준다")
 제어의 흐름 구조가 뒤 바뀌는 것<br><br>
 
 <b>일반적인 제어의 흐름</b><br>
