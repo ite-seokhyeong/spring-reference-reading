@@ -35,14 +35,20 @@ https://frontierdev.tistory.com/76
 <b>스프링 컨테이너 (= IoC 컨테이너)</b><br>
 IoC 방식으로 오브젝트(빈)를 관리하는 컨테이너. 
 오브젝트에 대한 제어권을 넘겨받아, 오브젝트 생성과 관계, 사용, 생명 주기 등을 관장한다.
-오브젝트 간의 의존성을 낮추기 위해 사용된다. 객체를 외부에서 설정해서, 외부에서 설정한 객체를 주입하는 방식! <br>
+오브젝트 간의 의존성을 낮추기 위해 사용된다. 객체를 외부에서 설정해서, 외부에서 설정한 객체를 주입하는 방식! <br><br>
 
-<b>BeanFactory</b><br>
-오브젝트(빈)의 생성과 관계 설정 제어를 담당하는 IoC 오브젝트. 
-조금 더 확장한 ApplicationContext를 주로 사용한다. <br>
+스프링 컨테이너는 아래와 같은 과정으로 스프링 프레임워크를 초기화한다.<br>
+1. 스프링 컨테이너 생성
+2. 빈들이 정의된 XML이 읽어들여짐
+3. XML 파일에 등록된 빈들의 라이프 사이클과 디펜던시가 관리되기 시작함 <br>
 
-<b>ApplicationContext</b>
+스프링에서 IoC 컨테이너 역할을 하는 것이 BeanFactory와 Application이다. <br>
 
+<b>org.springframework.beans.factory.BeanFactory</b><br>
+구현클래스: XmlBeanFactory - XML 파일에 기술되어 있는 정의를 바탕으로 빈을 로딩해준다. (로딩 해주면, 로딩된 빈을 getBean을 통해 호출할 수 있다) <br>
+
+<b>org.springframework.context.ApplicationContext</b><br>
+구현클래스: ClassPathXmlApplicationContext - 클래스패스에 위치한 하나의 설정 파일을 읽어온다. , FileSystemXmlApplicationContext - 지정 경로에 위치한 여러 설정파일을 읽어온다. (빈은 미리 로딩되어 있으므로 바로 getBean을 통해 호출할 수 있다) <br>
 
 <br><br>
 
