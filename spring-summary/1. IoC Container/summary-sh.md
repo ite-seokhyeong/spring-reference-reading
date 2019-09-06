@@ -51,6 +51,11 @@ IoC 방식으로 오브젝트(빈)를 관리하는 컨테이너.
 구현클래스: ClassPathXmlApplicationContext - 클래스패스에 위치한 하나의 설정 파일을 읽어온다. , FileSystemXmlApplicationContext - 지정 경로에 위치한 여러 설정파일을 읽어온다. (빈은 미리 로딩되어 있으므로 바로 getBean을 통해 호출할 수 있다) <br>
 
 <br><br>
+### "Beans"?
+스프링에서 POJO(plain, old java object)를 말하며, 스프링 IoC 컨테이너에 의해 생성, 관리된다. Beans는 컨테이너에 공급하는 설정 메타 데이터(XML 파일)에 의해 생성된다. 컨테이너는 이 메타 데이터를 사용하여 빈 생성, 관계 설정, 라이프 사이클을 읽는다. 객체는 getBean() 메서드를 통해 가져올 수 있다. 
+
+
+<br><br>
 
 # 1.2 컨테이너
 
