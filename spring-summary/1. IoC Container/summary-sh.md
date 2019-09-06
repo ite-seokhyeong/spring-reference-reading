@@ -59,7 +59,16 @@ IoC 방식으로 오브젝트(빈)를 관리하는 컨테이너.
 
 # 1.2 컨테이너
 
-TODO
+* <I>ApplicationContext 동작 원리 및 구현</I>
+* <I>Configuration 메타 데이터</I>
+
+<br>
+
+### ApplicationContext 동작 원리 및 구현
+<br>
+
+## Configuration 메타 데이터
+<br>
 
 <br><br>
 
