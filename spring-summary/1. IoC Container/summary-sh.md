@@ -70,6 +70,9 @@ BeanFactory를 확장한 컨테이너로, 트랙잭션 관리나 메시지 기�
 ### ApplicationContext 동작 원리 및 구현
 <br>
 
+<b>스프링 프로젝트 패키지 구성</b>
+
+
 ## Configuration 메타 데이터
 <br>
 
