@@ -43,12 +43,15 @@ IoC 방식으로 오브젝트(빈)를 관리하는 컨테이너.
 3. XML 파일에 등록된 빈들의 라이프 사이클과 디펜던시가 관리되기 시작함 <br>
 
 스프링에서 IoC 컨테이너 역할을 하는 것이 BeanFactory와 Application이다. <br>
+<bean> 저장소에 해당하는 XML 설정 파일을 가지고, <bean>의 라이프 사이클을 관리한다!!
 
 <b>org.springframework.beans.factory.BeanFactory</b><br>
 구현클래스: XmlBeanFactory - XML 파일에 기술되어 있는 정의를 바탕으로 빈을 로딩해준다. (로딩 해주면, 로딩된 빈을 getBean을 통해 호출할 수 있다) <br>
+스프링 설정 파일(applicationContext.xml)에 등록된 <bean> 객체를 생성하고 관리하는 가장 기본적인 컨테이너 기능만 제공한다. 컨테이너가 구동될 때 객체를 생성하는 것이 아니라, 클라이언트로부터 요청이 들어왔을 때에 객체를 생성한다. lazy loading 방식! 
 
 <b>org.springframework.context.ApplicationContext</b><br>
 구현클래스: ClassPathXmlApplicationContext - 클래스패스에 위치한 하나의 설정 파일을 읽어온다. , FileSystemXmlApplicationContext - 지정 경로에 위치한 여러 설정파일을 읽어온다. (빈은 미리 로딩되어 있으므로 바로 getBean을 통해 호출할 수 있다) <br>
+BeanFactory를 확장한 컨테이너로, 트랙잭션 관리나 메시지 기반의 다국어 처리 등 다양한 기능이 추가된다. 컨테이너가 구동될 때, <bean> 객체가 생성된다. 즉시 로딩 방식! 
 
 <br><br>
 ### "Beans"?
