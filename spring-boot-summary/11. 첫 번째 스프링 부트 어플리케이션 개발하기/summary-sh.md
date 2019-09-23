@@ -21,6 +21,8 @@ Spring boot는 JAR 파일에 내장 톰캣이 존재하여, JAR 파일을 빌드
 
 <br>
 일반적으로????????????
+<br>
+http://www.itdaily.kr/news/articleView.html?idxno=83127
 
 <br>
 
