@@ -8,7 +8,7 @@
 ## 스프링 부트 동작 원리
 아래 내용은 Spring boot로 웹 어플리케이션을 생성하는 것을 기준으로 한다. 
 <br><br>
-Spring boot 1.2.0 버전 이후 등장한 `@SpringBootApplication` 어노테이션은 `@Configuration`, `@EnableAutoConfiguration`, `@ComponentScan` 어노테이션을 포함한다. 이 중, `@EnableAutoConfiguration` 어노테이션은 Spring boot를 구동하는 데 원동력이 되는 어노테이션으로, @SpringBootApplication와 함께 어플리케이션의 전체 컴포넌트를 식별한다. 
+Spring boot 1.2.0 버전 이후 등장한 `@SpringBootApplication` 어노테이션은 `@Configuration`, `@EnableAutoConfiguration`, `@ComponentScan` 어노테이션을 포함한다. 이 중, `@EnableAutoConfiguration` 어노테이션은 Spring boot를 구동하는 데 원동력이 되는 어노테이션으로, `@SpringBootApplication`와 함께 어플리케이션의 전체 컴포넌트를 식별한다. 
 <br><br>
 가장 먼저, Spring boot는 클래스 패스를 탐색하여 `spring-boot-starter-web` 디펜던시가 선언 됨을 인지하고 웹 어플리케이션을 구성한다. 즉, `@Controller` 어노테이션이 붙고 `@RequestMapping`이 붙은 메서드를 가지고 있는 클래스를 웹 컨트롤러로 보고 `spring-boot-starter-web`의 의존체 중 하나인 톰캣 서버로 어플리케이션을 구동한다. (Spring boot로 웹 어플리케이션을 생성하면 톰캣 서버는 무조건 내장된다. 톰캣 서버를 제거하고 제티나 언더토우와 같은 다른 서버를 대신 사용할 수도 있다)
 
