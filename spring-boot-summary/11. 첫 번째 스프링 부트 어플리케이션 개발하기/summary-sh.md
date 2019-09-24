@@ -25,6 +25,14 @@ http://www.itdaily.kr/news/articleView.html?idxno=83127
 
 ### 실행가능한 WAR로 패키징하는 이유
 JSP를 사용하는 경우에는, "실행가능한 JAR"가 아닌 "실행가능한 WAR"로 패키징을 해야 한다. 
+<br><br>
+[참고] Spring boot의 spring-boot-starter-web에 포함된 톰캣은 JSP 엔진을 포함하고 있지 않으므로, 아래와 같이 별도의 설정을 해줘야 JSP 파일을 구동할 수 있다. 
+<br><br>
+a. jasper와 jstl 디펜던시를 별도로 추가
+<br>
+b. application.properties에 "spring.mvc.view.prefix=/WEB-INF/jsp/", "spring.mvc.view.suffix=.jsp" 추가
+<br>
+c. jsp 파일은 Spring boot의 templates 폴더 안에서 동작하지 않으므로 src/main 아래에 "/webapp/WEB-INF/jsp" 폴더를 생성하고 그 안에 .jsp 파일을 생성
 
 <br><br>
 
