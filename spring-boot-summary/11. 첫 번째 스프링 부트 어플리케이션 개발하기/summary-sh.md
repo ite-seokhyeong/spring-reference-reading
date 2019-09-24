@@ -10,11 +10,9 @@
 <br><br>
 Spring boot 1.2.0 버전 이후 등장한 `@SpringBootApplication` 어노테이션은 `@Configuration`, `@EnableAutoConfiguration`, `@ComponentScan` 어노테이션을 포함한다. 이 중, `@EnableAutoConfiguration` 어노테이션은 Spring boot를 구동하는 데 원동력이 되는 어노테이션으로, `@SpringBootApplication`와 함께 어플리케이션의 전체 컴포넌트를 식별한다. 
 <br><br>
-가장 먼저, Spring boot는 클래스 패스를 탐색하여 `spring-boot-starter-web` 디펜던시가 선언 됨을 인지하고 웹 어플리케이션을 구성한다. 즉, `@Controller` 어노테이션이 붙고 `@RequestMapping`이 붙은 메서드를 가지고 있는 클래스를 웹 컨트롤러로 보고 `spring-boot-starter-web`의 의존체 중 하나인 톰캣 서버로 어플리케이션을 구동한다. (Spring boot로 웹 어플리케이션을 생성하면 톰캣 서버는 무조건 내장된다. 톰캣 서버를 제거하고 제티나 언더토우와 같은 다른 서버를 대신 사용할 수도 있다)
+가장 먼저, Spring boot는 클래스 패스를 탐색(클래스 패스를 셋팅하는 것도 `@EnableAutoConfiguration`)하여 `spring-boot-starter-web` 디펜던시가 선언 됨을 인지하고 웹 어플리케이션을 구성한다. 즉, `@Controller` 어노테이션이 붙고 `@RequestMapping`이 붙은 메서드를 가지고 있는 클래스를 웹 컨트롤러로 보고 `spring-boot-starter-web`의 의존체 중 하나인 톰캣 서버로 어플리케이션을 구동한다. (Spring boot로 웹 어플리케이션을 생성하면 톰캣 서버는 무조건 내장된다. 톰캣 서버를 제거하고 제티나 언더토우와 같은 다른 서버를 대신 사용할 수도 있다)
 
 <br>
-
-### 메인 메소드 동작
 
 ### 기본 어노테이션
 #### @SpringBootApplication
@@ -37,6 +35,17 @@ Spring Framework 에서 설정 파일로 쓰겠다 라는 것을 의미!
 현재 패키지 아래에서 `@Component` 어노테이션이 붙어 있는 클래스들을 찾아서 빈으로 등록한다. Spring MVC 에서 자주 사용하는 `@RestController` 어노테이션도 내부에 `@Component`어노테이션이 포함되어 있으며 `@Configuration`과 같은 설정 파일 어노테이션 자체도 `@Component`이다. 그 외에도 `@Repository`, `@Controller`, `@Service` 
 
 <br>
+
+### 프로젝트의 기본 구조
+* src/main/java : 자바 소스
+* src/main/resources : 웹 정적&동적 리소스
+* src/main/resources/static : 웹 정적 리소스 (image, css, javascript 등)
+* src/main/resources/templates : 웹 동적 리소스 (FreeMarker, Groovy, Thymeleaf, Velocity, JSP 등) 
+* src/test/java : 단위 테스트를 위한 자바 소스
+* gradle/wrapper : 빌드 툴인 Gradle을 편리하게 사용 가능하도록 도와주는 스크립트. 적절한 Gradle 바이너리를 자동으로 다운로드해줘서 별도로 Gradle을 설치하지 않아도 빌드를 수행하는 것이 가능하다. 
+* build.gradle : Maven Repository 설정 및 하위 모듈에서 공통적으로 사용하는 라이브러리 디펜던시 설정, 플러그인 정보 설정 및 빌드를 위한 Gradle Task를 관리
+* gradlew : Gradle wrapper를 통해 빌드를 진행하기 위한 스크립트
+* gradlew.bat : Gradle wrapper를 통해 빌드를 진행하기 위한 스크립트. 윈도우용 배치. 
 
 
 
