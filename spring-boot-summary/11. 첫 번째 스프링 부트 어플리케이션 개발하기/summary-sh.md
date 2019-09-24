@@ -6,8 +6,39 @@
 <br><br>
 
 ## 스프링 부트 동작 원리
+아래 내용은 Spring boot로 웹 어플리케이션을 생성하는 것을 기준으로 한다. 
+<br><br>
+Spring boot 1.2.0 버전 이후 등장한 `@SpringBootApplication` 어노테이션은 `@Configuration`, `@EnableAutoConfiguration`, `@ComponentScan` 어노테이션을 포함한다. 이 중, `@EnableAutoConfiguration` 어노테이션은 Spring boot를 구동하는 데 원동력이 되는 어노테이션으로, @SpringBootApplication와 함께 어플리케이션의 전체 컴포넌트를 식별한다. 
+<br><br>
+가장 먼저, Spring boot는 클래스 패스를 탐색하여 `spring-boot-starter-web` 디펜던시가 선언 됨을 인지하고 웹 어플리케이션을 구성한다. 즉, `@Controller` 어노테이션이 붙고 `@RequestMapping`이 붙은 메서드를 가지고 있는 클래스를 웹 컨트롤러로 보고 `spring-boot-starter-web`의 의존체 중 하나인 톰캣 서버로 어플리케이션을 구동한다. (Spring boot로 웹 어플리케이션을 생성하면 톰캣 서버는 무조건 내장된다. 톰캣 서버를 제거하고 제티나 언더토우와 같은 다른 서버를 대신 사용할 수도 있다)
 
-### 메인 메소드 동작 및 기본 어노테이션
+<br>
+
+### 메인 메소드 동작
+
+### 기본 어노테이션
+#### @SpringBootApplication
+
+* <b>@Configuration</b> 
+Spring Framework 에서 설정 파일로 쓰겠다 라는 것을 의미!
+
+<br>
+
+* <b>@EnableAutoConfiguration</b>
+설정을 자동으로 등록해주는 역할! 즉, 미리 정의되어 있는 빈들을 가져와서 등록해준다. 이렇게 기본적으로 설정되어 있는 빈들은 외부 라이브러리(External Libraries) 중 `spring-boot-autoconfigure`에 정의되어 있다. 이 라이브러리를 열어보면, META-INF/spring.factories 파일에 자동으로 가져올 빈들이 정의되어 있는 것을 볼 수 있다. 이런 식으로 설정들이 기본적으로 정의되어 있고, 프로젝트에서 사용하고자 하는 디펜던시를 설치했을 때 파일에 설정되어 있는대로 적용이 되는 것이다. 
+예를 들어, 이 중 `org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration`이라는 것은 DispathcerServlet을 정의해주는 설정 파일이다. 이 패키지는 `org.springframework.boot.autoconfigure.web` 패키지 아래에 있다. 
+이러한 설정 구조들을 파악하여 사용자가 빈을 재 정의할 수도 있다. 따라서, DispatcherServlet을 재 정의하는 것도 가능하다. 
+정리하면, @EnableAutoConfiguration 어노테이션은 spring.factories 파일에 미리 정의되어 있는  `org.springframework.boot.autoconfigure.EnableAutoCOnfiguration`을 키 값으로 하는 모든 패키지를 가져오는 역할을 하며 각 클래스는 `@Configuration`으로 설정되어 있다. 이 때 모든 설정을 가져오는 것은 아니다. 각 클래스에 붙어 있는 `@Conditional~` 조건을 보고, 조건에 해당하는 경우에 각 Configuration을 참조한다. 즉 웹 환경에 필요한 추가적인 빈을 등록하여 최종적으로 웹 어플리케이션이 구동될 수 있도록 도와준다.
+
+<br>
+
+* <b>@ComponentScan</b>
+빈을 등록하는 역할! 
+현재 패키지 아래에서 `@Component` 어노테이션이 붙어 있는 클래스들을 찾아서 빈으로 등록한다. Spring MVC 에서 자주 사용하는 `@RestController` 어노테이션도 내부에 `@Component`어노테이션이 포함되어 있으며 `@Configuration`과 같은 설정 파일 어노테이션 자체도 `@Component`이다. 그 외에도 `@Repository`, `@Controller`, `@Service` 
+
+<br>
+
+
 
 <br><br>
 
