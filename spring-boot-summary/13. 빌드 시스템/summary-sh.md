@@ -43,32 +43,6 @@
 메이븐에서 phase는 빌드 라이프사이클에서 빌드 단계와 각 단계의 순서만을 정의하고 있는 개념으로 "단계"를 의미한다. 따라서 phase가 Build 작업을 수행하지는 않으며, 실질적인 Build 작업은 각 phase에 연결되어 있는 플러그인의 goal이 수행한다. 예를 들어, `mvn test`라는 phase를 통해 Build를 수행하면 로그를 통해 `process-resources(resources:resources)`, `compile(compiler:compile)`, `process-test-resources(resources:textResources)`, `test-compile(compiler:testCompile)`, `test(surefire:test)` 순서로 phase가 실행되는 것을 볼 수 있다. 
 
 <br>
-```xml
-<project>
-  ...
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.1</version>
-      </plugin>
-    </plugins>
-  </build>
-  ...
-</project>
-```
-compiler 플러그인을 사용하도록 설정한 예제로, complier 플러그인 하나를 선언함으로써 아래와 같은 goal들을 수행한다. 
-* sourceDirectory의 소스 코드를 컴파일하는 compile goal
-* testSourceDirectory의 테스트 소스 코드를 컴파일하는 testCompile goal
-* compiler 플러그인에 대한 도움말을 제공하는 help goal
-<br><br>
-
-maven compiler의 compile goal 실행 명령어는 다음과 같다. 
-<br>
-mvn org.apache.maven.plugins:maven-compiler-plugin:2.1:compile
-
-<br>
 
 ### 라이프사이클
 ### 의존성
