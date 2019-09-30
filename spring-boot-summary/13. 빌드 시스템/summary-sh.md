@@ -42,8 +42,11 @@
 [메이븐 플러그인 검색 사이트](http://maven.apache.org/plugins/index.html)
 
 <br>
+
 메이븐에서 제공하는 모든 기능은 플러그인 기반으로 동작한다. "goal"은 플러그인에 포함되어 있는 명령이며 플러그인은 하나 이상의 goal의 집합체이다. 기본 명령어는 `mvn [-option] [<goal(s)>] [phase(s)>]`의 형태이다. 예를 들어, `mvn clean compiler:compile`은 clean 페이즈를 실행하고 compiler 플러그인의 compile 골을 실행한다는 명령어이다. phase에 goal이 연결되어 있으므로 phase를 통해 메이븐 Build를 실행하면 해당 phase에 연결되어 있는 goal이 실행된다. 
+
 <br><br>
+
 메이븐에서 phase는 빌드 라이프사이클에서 빌드 단계와 각 단계의 순서만을 정의하고 있는 개념으로 "단계"를 의미한다. 따라서 phase가 Build 작업을 수행하지는 않으며, 실질적인 Build 작업은 각 phase에 연결되어 있는 플러그인의 goal이 수행한다. 예를 들어, `mvn test`라는 phase를 통해 Build를 수행하면 로그를 통해 `process-resources(resources:resources)`, `compile(compiler:compile)`, `process-test-resources(resources:textResources)`, `test-compile(compiler:testCompile)`, `test(surefire:test)` 순서로 phase가 실행되는 것을 볼 수 있다. 
 
 ### 라이프사이클
@@ -51,15 +54,19 @@
 <br>
 * <b>소스코드 컴파일/테스트/패키징/배포를 담당하는 기본 라이프사이클</b>
 
-compile : 소스코드를 컴파일 한다. 
+`compile` : 소스코드를 컴파일 한다. 
 <br>
-test : JUnit과 같은 프레임워크를 통해 단위테스트를 한다.
+
+`test` : JUnit과 같은 프레임워크를 통해 단위테스트를 한다.
 <br>
-package(--산출물 생성) : 단위 테스트가 성공하면, pom.xml의 <packaging> 값(jar, war 등)에 따라 압축한다. 
+
+`package`(--산출물 생성) : 단위 테스트가 성공하면, pom.xml의 <packaging> 값(jar, war 등)에 따라 압축한다. 
 <br>
-install(--로컬 저장소 배포) : 개발자 PC 저장소에 압축한 파일을 배포한다. 
+  
+`install`(--로컬 저장소 배포) : 개발자 PC 저장소에 압축한 파일을 배포한다. 
 <br>
-deploy(--원격 저장소 배포) : 외부에 위치한 메이븐 저장소에 압축한 파일을 배포한다. 
+
+`deploy`(--원격 저장소 배포) : 외부에 위치한 메이븐 저장소에 압축한 파일을 배포한다. 
 <br>
   
 * <b>Build한 결과물을 제거하기 위한 Clean 라이프사이클</b>
