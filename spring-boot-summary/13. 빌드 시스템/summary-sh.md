@@ -31,7 +31,48 @@
 <br><br>
 
 ## Apache Maven
+[메이븐 공식 홈페이지](http://maven.apache.org/)
+<br>
+<b>자바용 프로젝트 빌드 및 라이브러리 관리 도구</b>로, 필요한 라이브러리를 특정 문서(pom.xml)에 정의해 두면 네트워크를 통해서 라이브러리들을 자동으로 다운받아준다. 따라서 jar 파일을 서로 전송해서 공유할 필요 없이 pom.xml에 필요한 것들 명시해 놓으면 라이브러리를 쉽게 관리할 수 있다. 
 
+### 플러그인 (Plugin)
+[메이븐 플러그인 검색 사이트](http://maven.apache.org/plugins/index.html)
+<br>
+메이븐에서 제공하는 모든 기능은 플러그인 기반으로 동작한다. "goal"은 플러그인에서 실행가능한 각각의 작업을 의미한다. 메이븐 빌드에서 goal 영역에 작업하고자 하는 명령어를 입력하여 compile, package 등을 실행할 수 있다. 
+<br>
+```xml
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+    </plugins>
+  </build>
+  ...
+</project>
+```
+compiler 플러그인을 사용하도록 설정한 예제로, complier 플러그인 하나를 선언함으로써 아래와 같은 goal들을 수행한다. 
+* sourceDirectory의 소스 코드를 컴파일하는 compile goal
+* testSourceDirectory의 테스트 소스 코드를 컴파일하는 testCompile goal
+* compiler 플러그인에 대한 도움말을 제공하는 help goal
 <br><br>
 
+maven compiler의 compile goal 실행 명령어는 다음과 같다. 
+<br>
+mvn org.apache.maven.plugins:maven-compiler-plugin:2.1:compile
+
+<br>
+
+### 라이프사이클
+### 의존성
+### 프로필
+### POM
+<br><br>
+
+
 ## Apache Gradle
+
