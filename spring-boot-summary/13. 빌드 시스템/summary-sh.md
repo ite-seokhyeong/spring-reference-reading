@@ -35,8 +35,7 @@
 <br>
 <b>자바용 프로젝트 빌드 및 라이브러리 관리 도구</b>로, 필요한 라이브러리를 특정 문서(pom.xml)에 정의해 두면 네트워크를 통해서 라이브러리들을 자동으로 다운받아준다. 따라서 jar 파일을 서로 전송해서 공유할 필요 없이 pom.xml에 필요한 것들 명시해 놓으면 라이브러리를 쉽게 관리할 수 있다. 
 
-<br>
-
+<br><br>
 ### 플러그인 (Plugin)
 
 [메이븐 플러그인 검색 사이트](http://maven.apache.org/plugins/index.html)
@@ -44,10 +43,10 @@
 <br>
 
 메이븐에서 제공하는 모든 기능은 플러그인 기반으로 동작한다. "goal"은 플러그인에 포함되어 있는 명령이며 플러그인은 하나 이상의 goal의 집합체이다. 기본 명령어는 `mvn [-option] [<goal(s)>] [phase(s)>]`의 형태이다. 예를 들어, `mvn clean compiler:compile`은 clean 페이즈를 실행하고 compiler 플러그인의 compile 골을 실행한다는 명령어이다. phase에 goal이 연결되어 있으므로 phase를 통해 메이븐 Build를 실행하면 해당 phase에 연결되어 있는 goal이 실행된다. 
-
 <br><br>
 
 메이븐에서 phase는 빌드 라이프사이클에서 빌드 단계와 각 단계의 순서만을 정의하고 있는 개념으로 "단계"를 의미한다. 따라서 phase가 Build 작업을 수행하지는 않으며, 실질적인 Build 작업은 각 phase에 연결되어 있는 플러그인의 goal이 수행한다. 예를 들어, `mvn test`라는 phase를 통해 Build를 수행하면 로그를 통해 `process-resources(resources:resources)`, `compile(compiler:compile)`, `process-test-resources(resources:textResources)`, `test-compile(compiler:testCompile)`, `test(surefire:test)` 순서로 phase가 실행되는 것을 볼 수 있다. 
+<br><br>
 
 ### 라이프사이클
 메이븐에서 미리 정의하고 있는 Build 순서를 의미하며 메이븐에서는 총 3개의 라이프사이클을 제공한다. 
@@ -77,6 +76,7 @@ clean 페이즈를 실행하면 메이븐 Build를 통해 생성된 모든 산�
 * <b>프로젝트 문서 사이트를 생성하는 site 라이프사이클</b>
 
 메이븐 설정 파일 정보를 활용하여 프로젝트에 대한 문서 사이트를 생성할 수 있도록 지원한다. site 페이즈는 문서 사이트를 생성하고, site-deploy 페이즈는 생성한 문서 사이트를 설정되어 있는 서버에 배포하는 역할을 한다. 
+<br><br>
 
 ### 의존성
 ### 프로필
